@@ -1,0 +1,9 @@
+<h1>Prestamos por categorias</h1>
+
+<ul>
+    
+    {% for c in categorias %}
+        <li>{{ c }}, prestamos --> {{ c.num_libros }}</li>
+    {% endfor %}
+        
+</ul>

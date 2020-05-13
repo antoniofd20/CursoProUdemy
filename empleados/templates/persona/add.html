@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %}
+    Agregar nuevo empleado
+{% endblock titulo %}
+    
+
+{% block contenido %}
+{% include 'includes/header.html' %}
+<div class="container">
+    <div class="row my-4">
+        <div class="col-12"><h1>Registrar un nuevo empleado</h1></div>
+    </div>
+    <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
+        <div class="row">
+            <div class="col-5">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Nombre(s)</label>
+                    <input type="text" class="form-control" placeholder="Nombre(s)"id={{form.first_name}}
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Apellidos</label>
+                    <input type="text" class="form-control" placeholder="Nombre(s)"id={{form.last_name}}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Trabajo</label><br>
+                    {{form.job}}
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Departamento</label>
+                    {{form.departamento}}
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Departamento</label><br>
+                    {{form.habilidades}}
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Fotografia:</label>
+                    {{form.avatar}}
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-around my-3">
+            <div class="col-5">
+                <button type="submit" class="btn btn-success btn-block">Registrar nuevo empelado</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock contenido %}

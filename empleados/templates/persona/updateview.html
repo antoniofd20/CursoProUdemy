@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %}
+    Editar empleado 
+{% endblock titulo %}
+    
+
+{% block contenido %}
+{% include "includes/header.html" %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Modificar empleado</h1>
+        </div>
+    </div>
+    <div class="row justify-content-around">
+        <div class="col-8">
+            <form method="POST"> {% csrf_token %}
+                <div class="row">
+                    <div class="col-5">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Nombre(s)</label><br>
+                            {{ form.first_name }}
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Apellidos</label><br>
+                            {{ form.last_name }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Cargo</label><br>
+                            {{ form.job }}
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Departamento</label>
+                            {{ form.departamento }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Habilidades</label><br>
+                            {{ form.habilidades }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10">
+                        <button type="submit" class="btn btn-warning btn-block">Guardar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock contenido %}
+

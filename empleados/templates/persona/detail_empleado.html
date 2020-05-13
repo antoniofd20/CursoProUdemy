@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+    {{object.first_name}} {{object.last_name}}
+{% endblock titulo %}
+    
+
+{% block contenido %}
+{% include 'includes/header.html' %}
+    <div class="container">
+        <div class="row justify-content-around my-5">
+            <div class="col-5">
+                <div class="card">
+                    
+                    {% if empleado.avatar %}
+                        <img src="{{empleado.avatar.url}}" class="card-img-top rounded-top" alt="...">
+                    {% else %}
+                        <img src="{% static 'img/luis.jpg' %}" class="img-fluid" alt="">
+                    {% endif %}
+                        
+                    
+                    <div class="card-body">
+                        <h3 class="card-title">{{empleado.first_name}} {{empleado.last_name}}</h3>
+                        <p class="card-text h4">{{empleado.get_job_display}} del área de: {{empleado.departamento.short_name}}</p>
+                        <!-- Many to many en el template-->
+                        <p><span class="label">Habilidades del empleado:</span></p>
+                        <ul class="list-group list-group-flush">
+                            
+                            {% for h in empleado.habilidades.all %}
+                                <li class="list-group-item">{{ h.habilidad }}</li>
+                            {% endfor %}
+            
+                        </ul>
+                        <p class="card-text h4"></p>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock contenido %}
+    
+<h1>Detalles de un empleado</h1>
+
+{{ empleado }}
+
+<p>{{ empleado.first_name }}</p>
+<p>{{ empleado.last_name }}</p>
+<p>{{ empleado.departamento.name }}</p>

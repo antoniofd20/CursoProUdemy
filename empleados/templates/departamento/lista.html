@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %}
+    Lista departamentos
+{% endblock titulo %}
+    
+
+{% block contenido %}
+    {% include 'includes/header.html' %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-10">
+                <h1>Lista departamentos</h1>
+            </div>        
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <table class="table">
+                    <tbody>
+                        {% for departamento in lista %}
+                        <tr>
+                            <td>{{departamento.name}}</td>
+                            <td>{{departamento.short_name}}</td>
+                            <td><a class="btn btn-success" href="{% url 'persona_app:lista-por-departamento' departamento.short_name %}">Ver empelados</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock contenido %}
+    

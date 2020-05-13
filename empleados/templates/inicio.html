@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- Bloque para el titulo -->
+{% block titulo %}
+    Inicio
+{% endblock titulo %}
+
+{% block contenido %}
+    <!-- header -->
+    {% include 'includes/header.html' %}
+    
+    <!--Inicio del contenido-->
+    <div class="container">
+        <div class="row my-2 justify-content-center">
+            <div class="col-10">
+                <img src="{% static 'img/inicio_oficina.jpg' %}" class="img-fluid" alt="">
+            </div>  
+        </div>
+    <!-- Fin del contenido -->
+
+    <!-- Bloque de bienvenida -->
+        <div class="row justify-content-center">
+            <div class="col-12 text-center">
+                <h2>Bienvenido al sistema de registro de empleados. </h2>
+            </div>
+            <div class="col-7">
+                <div class="alert alert-secondary" role="alert">
+                    <h5>Registre y controle empleados.</h5>
+                    <p>Esta es una página para facilitarle la gestion de los empleados de su empresa</p>
+                    <a href="{% url 'persona_app:lista-empelados' %}">Ver empleados</a>
+                </div>
+            </div>
+        </div>
+    <!-- Fin de la bienvenida -->
+    </div>
+
+{% endblock contenido %}

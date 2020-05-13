@@ -1,0 +1,13 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Formulario de prestamo</title>
+  </head>
+  <body>
+    <h1>Registrar prestamo</h1>
+    <form method="POST">{% csrf_token %}
+      {{form.as_p}}
+      <button type="submit" name="button">Guardar prestamo</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %}
+    Eliminar empleado
+{% endblock titulo %}
+
+
+{% block contenido %}
+{% include "includes/header.html" %}
+<div class="container">
+    <div class="row my-5">
+        <div class="col-12">
+            <h1>Eliminar empleado</h1><br>
+            <div class="row">
+                <div class="col-4"><h4>Esta seguro de eliminar a: </h4></div>
+                <div class="col-8"><h4 class="text-danger">{{object.first_name}} {{object.last_name}}</h4></div>
+            </div>
+        </div>
+    </div>
+    <div class="row my-5">
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">¡Esta usted a punto de eliminar a un alumno!</h4>
+            <p>
+                Recuerde que al confirmar esta acción usted perdera todos los datos relacionadios al empleado/a:
+                {{object.first_name}} {{object.last_name}} y no podra deshacer los cambios
+            </p>
+            <hr>
+            <form method="POST"> {% csrf_token %}
+                <button type="submit" class="btn btn-outline-danger btn-block">Estoy seguro</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock contenido %}

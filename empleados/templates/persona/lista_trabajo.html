@@ -1,0 +1,6 @@
+<h1>Listas por trabajo</h1>
+<ul>
+    {% for e in object_list %}
+        <li>{{e}} con el trabajo: {{e.job}}</li>
+    {% endfor %}
+</ul>

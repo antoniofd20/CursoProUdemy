@@ -1,0 +1,21 @@
+<h1>Lista de los libros por categoria</h1>
+<p>Escoger la categoria con un numero de acuerdo a la siguente lista:</p>
+<ul>
+    <li>1 - Novela</li>
+    <li>2 - Ciencia ficción</li>
+    <li>3 - Ficción de aventuras</li>
+    <li>4 - Novela cientifica</li>
+    <li>5 - Novela de terror</li>
+</ul>
+<form method="GET"> {% csrf_token %}
+    <input type="text" id="categoria" name="categoria" placeholder="Ingrese categoria...">
+    <button type="submit">Buscar</button>
+</form>
+
+<ul>
+    
+    {% for c in categorias %}
+        <li>{{c.titulo}}</li>
+    {% endfor %}
+        
+</ul>
